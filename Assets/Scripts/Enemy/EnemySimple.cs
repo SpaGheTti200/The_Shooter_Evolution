@@ -8,8 +8,6 @@ public class EnemySimple : MonoBehaviour
 
     [SerializeField] private int damage = 1;
 
-    // [SerializeField] private int scoreValue = 10; 
-    
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -41,14 +39,5 @@ public class EnemySimple : MonoBehaviour
         }
     }
 
-    // public void Die()
-    // {
-    //     if (PlayerScoreController.Instance != null)
-    //     {
-    //         PlayerScoreController.Instance.AddScore(scoreValue);
-    //     }
-    //
-    //     Destroy(gameObject);
-    // }
 
 }

@@ -26,7 +26,7 @@ public class Haste : MonoBehaviour, IPowerUp
         _movement = player.GetComponent<PlayerMovement>();
         if (_movement != null)
         {
-            _movement.speed /= speedMultiplier; // Reset the player's speed
+            _movement.speed /= speedMultiplier; 
         }
     }
     

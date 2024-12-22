@@ -10,6 +10,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private Transform shootPoint; 
     [SerializeField] private float bulletSpeed = 10f; 
 
+    public float damageMultiplier = 1;
+    
     private PlayerInput _playerInput;
     private InputAction _shootAction;
 
@@ -37,7 +39,9 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot()
     {
         GameObject shotBullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-        
+        float tempdamage = shotBullet.GetComponent<BulletController>().BulletDamage * damageMultiplier;
+        shotBullet.GetComponent<BulletController>().BulletDamage = tempdamage;
+
         Rigidbody2D rb = shotBullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {

@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 8635268887852805334}
   - component: {fileID: 649057882435605841}
   - component: {fileID: 2474989780390685713}
+  - component: {fileID: 895910183499131300}
   m_Layer: 0
   m_Name: _Player
   m_TagString: Player
@@ -218,6 +219,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6240354005223482157, guid: fb5c68360a0e29348998625680f67cfe, type: 3}
   shootPoint: {fileID: 3882551488098016666}
   bulletSpeed: 8
+  damageMultiplier: 1
 --- !u!114 &8635268887852805334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +258,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e0cf7060fbb3742a921853c75608bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &895910183499131300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185158381117538582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf6c4b2cae02864cafd64910b793bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!1 &3190069072766627687
 GameObject:
   m_ObjectHideFlags: 0

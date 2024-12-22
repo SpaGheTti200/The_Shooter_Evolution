@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7842407568654902836}
   - component: {fileID: 1416994339249739089}
+  - component: {fileID: 376978495473274623}
   m_Layer: 0
   m_Name: Double Damage
   m_TagString: Untagged
@@ -168,3 +169,17 @@ PolygonCollider2D:
       - {x: 0.16381037, y: -0.3334775}
       - {x: 0.3666587, y: -0.00036999583}
   m_UseDelaunayMesh: 0
+--- !u!114 &376978495473274623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664170235590749465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd310a2495f91e438db83c4d6c0ffd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 2
+  duration: 5

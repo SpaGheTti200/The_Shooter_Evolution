@@ -1,43 +1,45 @@
+
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int currentHealth;
+    public static event Action<int> OnPlayerHealthChanged; 
 
-    public int maxHealth; 
+    public int currentHealth;
+    public int maxHealth;
+
+    public event Action<int, int> OnHealthChanged; 
 
     private void Start()
     {
         currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth); 
     }
 
-    public void TakeDamage(int _damage)
+    public void TakeDamage(int damage)
     {
-        Debug.Log($"Player {gameObject.name} taking damage {_damage}");
-        currentHealth -= _damage;
+        Debug.Log($"Player {gameObject.name} taking damage {damage}");
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth); 
+
         if (currentHealth <= 0)
         {
             PerformDeath();
         }
+        
+        OnPlayerHealthChanged?.Invoke(currentHealth);
+    }
+
+    public void AddHealth(int health)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + health, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     private void PerformDeath()
     {
-        Destroy(gameObject);
-    }
-
-    public void AddHealth(int _health)
-    {
-        if (currentHealth + _health > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        else
-        {
-            currentHealth += _health;
-        }
+        Destroy(gameObject); 
     }
 }
