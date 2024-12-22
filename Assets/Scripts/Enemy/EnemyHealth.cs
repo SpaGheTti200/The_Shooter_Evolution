@@ -1,12 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IDamageable, IHealth
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [field: SerializeField]public int CurrentHealth { get; private set; }
-    [field: SerializeField]public int MaxHealth { get; private set; }
-    
-    [SerializeField] private int scoreValue = 10;
+    [SerializeField] private EnemyBlueprint enemyBlueprint;
+
+    public int CurrentHealth { get; private set; }
+    public int MaxHealth { get; private set; }
+
     private HealthbarBehavior _healthbarBehavior;
+
+    private GameObject hitParticle;
 
     private void Awake()
     {
@@ -15,31 +19,87 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IHealth
 
     private void Start()
     {
+        // if (enemyBlueprint == null)
+        // {
+        //     Debug.LogError($"{gameObject.name}: EnemyBlueprint is null at runtime!");
+        //     return;
+        // }
+
+        // Debug.Log($"{gameObject.name}: EnemyBlueprint assigned: {enemyBlueprint.name}");
+
+        if (!enemyBlueprint.hitParticlePrefab)
+        {
+            // Debug.Log("Hit particle is not null");
+            hitParticle = enemyBlueprint.hitParticlePrefab;
+        }
+        // else
+        // {
+        //     Debug.Log("Hit particle prefab is null");
+        // }
+
+        if (enemyBlueprint == null)
+        {
+            Debug.LogError("EnemyBlueprint not assigned!");
+            return;
+        }
+
+        MaxHealth = enemyBlueprint.maxHealth;
         CurrentHealth = MaxHealth;
+
+
+        GetComponentInChildren<SpriteRenderer>().color = enemyBlueprint.enemyColor;
+
+
         _healthbarBehavior.SetHealthbar(CurrentHealth, MaxHealth);
     }
-    
-    public void TakeDamage(float damage)
+
+    public void TakeDamage(float damage, Vector2 hitTransform)
     {
         CurrentHealth = (int)Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
         _healthbarBehavior.SetHealthbar(CurrentHealth, MaxHealth);
+
+
+        StartCoroutine(DamagedParticleController(hitTransform));
 
         if (CurrentHealth <= 0)
         {
             Die();
         }
     }
-    
+
+    private IEnumerator DamagedParticleController(Vector2 hitTransform)
+    {
+        if (hitParticle == null)
+        {
+            Debug.LogError("Hit particle prefab is null! Cannot instantiate.");
+            yield break;
+        }
+
+        // Convert Vector2 to Vector3
+        Vector3 hitPosition = new Vector3(hitTransform.x, hitTransform.y, 0); 
+
+        GameObject tempGo = Instantiate(hitParticle, hitPosition, Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(tempGo);
+    }
+
+
+    // private void DeathParticleController()
+    // {
+    // }
+
     public void Die()
     {
-        Debug.Log("Die1");
-        if (PlayerScoreController.Instance != null)
+        if (enemyBlueprint.deathParticlePrefab != null)
         {
-            PlayerScoreController.Instance.AddScore(scoreValue);
+            Instantiate(enemyBlueprint.deathParticlePrefab, transform.position, Quaternion.identity);
         }
-        Debug.Log("Die2");
+
         Destroy(gameObject);
     }
 
-    
+    // public void TakeDamage(float damage)
+    // {
+    //     throw new System.NotImplementedException();
+    // }
 }

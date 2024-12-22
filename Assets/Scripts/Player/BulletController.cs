@@ -20,7 +20,10 @@ public class BulletController : MonoBehaviour
         if (!IsCollidedWithAnEnemy(other.gameObject)) return;
 
         var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-        GiveEnemySomeDamage(enemyHealth);
+        
+        Vector2 collisionPoint = other.ClosestPoint(transform.position);
+        
+        GiveEnemySomeDamage(enemyHealth, collisionPoint);
 
         StartSelfTerminateCoroutine(0);
     }
@@ -28,12 +31,12 @@ public class BulletController : MonoBehaviour
     private bool IsCollidedWithAnEnemy(GameObject go) =>
         go.CompareTag(TargetTag);
 
-    private void GiveEnemySomeDamage(EnemyHealth enemyHealth)
+    private void GiveEnemySomeDamage(EnemyHealth enemyHealth, Vector2 hitTransform)
     {
         if (!enemyHealth)
             throw new Exception("no enemyHealth");
 
-        enemyHealth.TakeDamage(BulletDamage);
+        enemyHealth.TakeDamage(BulletDamage, hitTransform);
     }
 
     private void StartSelfTerminateCoroutine(int seconds)
