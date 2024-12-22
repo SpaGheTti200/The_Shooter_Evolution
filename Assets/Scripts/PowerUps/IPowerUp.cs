@@ -1,5 +1,7 @@
+using UnityEngine;
+
 public interface IPowerUp
 {
-    void Activate();
-    void Deactivate();
+    void Activate(GameObject gameObject);
+    void Deactivate(GameObject gameObject);
 }

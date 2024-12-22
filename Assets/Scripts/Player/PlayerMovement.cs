@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera _mainCamera;
 
     [HideInInspector] public Vector2 dir;
-    [SerializeField] private float speed = 5f;
+    public float speed = 5f;
 
     private void Awake()
     {

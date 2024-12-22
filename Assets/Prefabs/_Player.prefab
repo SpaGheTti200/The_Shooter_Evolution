@@ -43,11 +43,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3811408673165072253}
   - component: {fileID: 2225769166178731448}
+  - component: {fileID: 291880311076009030}
   - component: {fileID: 346965885122836346}
   - component: {fileID: 6424289043450401344}
   - component: {fileID: 20165527446799397}
   - component: {fileID: 7595540187887022566}
-  - component: {fileID: 291880311076009030}
+  - component: {fileID: 8635268887852805334}
+  - component: {fileID: 649057882435605841}
+  - component: {fileID: 2474989780390685713}
   m_Layer: 0
   m_Name: _Player
   m_TagString: Player
@@ -98,6 +101,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &291880311076009030
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185158381117538582}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0770078}
+  m_Size: {x: 0.5, y: 0.8459844}
+  m_Direction: 0
 --- !u!114 &346965885122836346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0}
-  speed: 3
+  speed: 4.5
 --- !u!114 &7595540187887022566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,41 +218,44 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6240354005223482157, guid: fb5c68360a0e29348998625680f67cfe, type: 3}
   shootPoint: {fileID: 3882551488098016666}
   bulletSpeed: 8
---- !u!70 &291880311076009030
-CapsuleCollider2D:
+--- !u!114 &8635268887852805334
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2185158381117538582}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0770078}
-  m_Size: {x: 0.5, y: 0.8459844}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cf4024c4e8fd74a8e6c846434c0792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &649057882435605841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185158381117538582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ddb43b8fb8c4e4a83d8fe9c8fe6fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 10
+--- !u!114 &2474989780390685713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185158381117538582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e0cf7060fbb3742a921853c75608bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3190069072766627687
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 5548465845799791051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.867, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

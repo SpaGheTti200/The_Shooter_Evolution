@@ -1,10 +1,15 @@
+using System;
 using UnityEngine;
 
 public class EnemySimple : MonoBehaviour
 {
     private Transform _playerTransform; 
-    [SerializeField] private float speed = 5f; 
+    [SerializeField] private float speed = 5f;
 
+    [SerializeField] private int damage = 1;
+
+    // [SerializeField] private int scoreValue = 10; 
+    
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -25,4 +30,25 @@ public class EnemySimple : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _playerTransform.position, speed * Time.deltaTime);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth _playerhealth = other.gameObject.GetComponent<PlayerHealth>();
+            _playerhealth.TakeDamage(damage);
+            
+        }
+    }
+
+    // public void Die()
+    // {
+    //     if (PlayerScoreController.Instance != null)
+    //     {
+    //         PlayerScoreController.Instance.AddScore(scoreValue);
+    //     }
+    //
+    //     Destroy(gameObject);
+    // }
+
 }
