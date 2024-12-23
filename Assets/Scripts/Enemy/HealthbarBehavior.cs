@@ -14,6 +14,8 @@ public class HealthbarBehavior : MonoBehaviour
     
     private void Start()
     {
+        slider.gameObject.SetActive(true);
+        
         if (cam == null)
             cam = Camera.main;
     }

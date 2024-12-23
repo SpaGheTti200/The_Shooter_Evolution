@@ -361,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -129, y: 110.5}
+  m_AnchoredPosition: {x: -255, y: 181}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363140045
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1092,10 +1092,10 @@ RectTransform:
   - {fileID: 363140044}
   m_Father: {fileID: 2063004943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_SizeDelta: {x: -700, y: -427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628348265
 MonoBehaviour:
@@ -1248,37 +1248,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 434855889}
     - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 363140045}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: lowHealthColor.b
-      value: 0.18623178
-      objectReference: {fileID: 0}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: lowHealthColor.g
-      value: 0.18623178
-      objectReference: {fileID: 0}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: lowHealthColor.r
-      value: 0.8773585
-      objectReference: {fileID: 0}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: highHealthColor.b
-      value: 0.1549929
-      objectReference: {fileID: 0}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: highHealthColor.g
-      value: 0.764151
-      objectReference: {fileID: 0}
-    - target: {fileID: 895910183499131300, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
-      propertyPath: highHealthColor.r
-      value: 0.25888306
-      objectReference: {fileID: 0}
     - target: {fileID: 2185158381117538582, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
       propertyPath: m_Name
       value: _Player
@@ -1322,6 +1294,38 @@ PrefabInstance:
     - target: {fileID: 3811408673165072253, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801356876097329921, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: m_Name
+      value: Smoke PS
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.strength.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.strength.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.strengthY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191128860475585314, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
+      propertyPath: NoiseModule.strengthZ.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6424289043450401344, guid: 20b98fe26b4c2a44d85742eec6963946, type: 3}
       propertyPath: mainCamera
@@ -1392,6 +1396,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: _enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1135361989253997012, guid: b14838cb23d77d446ae35ea50c7e494a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370585076283092917, guid: b14838cb23d77d446ae35ea50c7e494a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1803169709529141854, guid: b14838cb23d77d446ae35ea50c7e494a, type: 3}
       propertyPath: m_Value
       value: 0
@@ -1414,7 +1426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481580941374950091, guid: b14838cb23d77d446ae35ea50c7e494a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4307227808321279386, guid: b14838cb23d77d446ae35ea50c7e494a, type: 3}
       propertyPath: m_SizeDelta.x
