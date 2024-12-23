@@ -2,20 +2,30 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable, IHealth
 {
+    private EnemyBlueprint enemyBlueprint;
+    private EnemyController _enemyController;
     [field: SerializeField]public int CurrentHealth { get; private set; }
     [field: SerializeField]public int MaxHealth { get; private set; }
     
-    [SerializeField] private int scoreValue = 10;
     private HealthbarBehavior _healthbarBehavior;
 
     private void Awake()
     {
+        _enemyController = GetComponent<EnemyController>();
         _healthbarBehavior = GetComponent<HealthbarBehavior>();
+        enemyBlueprint = _enemyController.enemyBlueprint;
     }
 
     private void Start()
     {
+        InitializeHealth();
+    }
+
+    private void InitializeHealth()
+    {
+        MaxHealth = enemyBlueprint.maxHealth;
         CurrentHealth = MaxHealth;
+        
         _healthbarBehavior.SetHealthbar(CurrentHealth, MaxHealth);
     }
     
@@ -35,7 +45,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IHealth
         Debug.Log("Die1");
         if (PlayerScoreController.Instance != null)
         {
-            PlayerScoreController.Instance.AddScore(scoreValue);
+            PlayerScoreController.Instance.AddScore(enemyBlueprint.scoreValue);
         }
         Debug.Log("Die2");
         Destroy(gameObject);

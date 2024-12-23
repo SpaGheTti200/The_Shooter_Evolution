@@ -7,8 +7,28 @@ public class Haste : MonoBehaviour, IPowerUp
 {
     [SerializeField] private float speedMultiplier = 2f;
     [SerializeField] private float duration = 5f;
+    // [SerializeField] private Collider2D _collider2D;
+    // [SerializeField] private GameObject fx;
+    
+    
+    [field: SerializeField]public GameObject fxGameobject { get; set; }
+    [field: SerializeField]public Collider2D fxCollider { get; set; }
+    [field: SerializeField]public GameObject fxClaimGameObject { get; set; }
     
     PlayerMovement _movement;
+
+    public void ClaimedEffect()
+    {
+        StartCoroutine(clameParticleHandler());
+    }
+
+    private IEnumerator clameParticleHandler()
+    {
+        // Debug.Log("Double Damage");
+        GameObject clamedEffect = Instantiate(fxClaimGameObject, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        Destroy(clamedEffect);
+    }
 
     public void Activate(GameObject player)
     {
@@ -18,7 +38,8 @@ public class Haste : MonoBehaviour, IPowerUp
             _movement.speed *= speedMultiplier; 
         }
 
-        player.GetComponent<PlayerPowerUpHandler>().StartCoroutine(DeactivateAfterTime(player));
+        StartCoroutine(DeactivateAfterTime(player));
+        // player.GetComponent<PlayerPowerUpHandler>().StartCoroutine(DeactivateAfterTime(player));
     }
 
     public void Deactivate(GameObject player)
@@ -32,6 +53,7 @@ public class Haste : MonoBehaviour, IPowerUp
     
     private IEnumerator DeactivateAfterTime(GameObject player)
     {
+        
         DestoyThePowerUp();
         yield return new WaitForSeconds(duration);
         Deactivate(player);
@@ -40,10 +62,12 @@ public class Haste : MonoBehaviour, IPowerUp
 
     private void DestoyThePowerUp()
     {
-        SpriteRenderer _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _spriteRenderer.enabled = false;
-
-        PolygonCollider2D _collider2D = GetComponent<PolygonCollider2D>();
-        _collider2D.enabled = false;
+        // Debug.Log("ASD");
+        // SpriteRenderer _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        // _spriteRenderer.enabled = false;
+        // if(fxCollider == null) Debug.Log("No Collider found");
+        
+        fxCollider.enabled = false;
+        fxGameobject.SetActive(false);
     }
 }

@@ -43,8 +43,8 @@ public class PlayerShooting : MonoBehaviour
 
         FireParticleController();
         
-        float tempdamage = shotBullet.GetComponent<BulletController>().BulletDamage * damageMultiplier;
-        shotBullet.GetComponent<BulletController>().BulletDamage = tempdamage;
+        float tempdamage = shotBullet.GetComponent<BulletController>().bulletDamage * damageMultiplier;
+        shotBullet.GetComponent<BulletController>().bulletDamage = tempdamage;
 
         Rigidbody2D rb = shotBullet.GetComponent<Rigidbody2D>();
         if (rb != null)
