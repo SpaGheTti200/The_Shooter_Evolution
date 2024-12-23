@@ -8,7 +8,8 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab; 
     [SerializeField] private Transform shootPoint; 
-    [SerializeField] private float bulletSpeed = 10f; 
+    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private ParticleSystem fireParticle;
 
     public float damageMultiplier = 1;
     
@@ -39,6 +40,9 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot()
     {
         GameObject shotBullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+
+        FireParticleController();
+        
         float tempdamage = shotBullet.GetComponent<BulletController>().BulletDamage * damageMultiplier;
         shotBullet.GetComponent<BulletController>().BulletDamage = tempdamage;
 
@@ -51,5 +55,10 @@ public class PlayerShooting : MonoBehaviour
         {
             Debug.LogError("Bullet prefab is missing a Rigidbody2D component!");
         }
+    }
+
+    private void FireParticleController()
+    {
+        fireParticle.Play(true);
     }
 }
