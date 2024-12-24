@@ -51,5 +51,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IHealth
         Destroy(gameObject);
     }
 
-    
+
+    public void TakeDamage(float damage, Vector2 postion)
+    {
+        throw new System.NotImplementedException();
+    }
 }
