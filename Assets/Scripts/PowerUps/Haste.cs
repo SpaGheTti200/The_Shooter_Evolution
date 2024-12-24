@@ -7,8 +7,9 @@ public class Haste : MonoBehaviour, IPowerUp
 {
     [SerializeField] private float speedMultiplier = 2f;
     [SerializeField] private float duration = 5f;
-    // [SerializeField] private Collider2D _collider2D;
-    // [SerializeField] private GameObject fx;
+
+    // private GameObject playerJetGameObject;
+    [field: SerializeField]public GameObject effectsOnPlayer { get; set; }
     
     
     [field: SerializeField]public GameObject fxGameobject { get; set; }
@@ -38,8 +39,20 @@ public class Haste : MonoBehaviour, IPowerUp
             _movement.speed *= speedMultiplier; 
         }
 
+        ActivatePlayerJetEffects(player);
+        ClaimedEffect();
         StartCoroutine(DeactivateAfterTime(player));
-        // player.GetComponent<PlayerPowerUpHandler>().StartCoroutine(DeactivateAfterTime(player));
+    }
+
+    private void ActivatePlayerJetEffects(GameObject player)
+    {
+        // playerJetGameObject = player.transform.Find("Heal_EffectsQWE").gameObject;
+        effectsOnPlayer.SetActive(true);
+    }
+
+    private void DeactivatePlayerJetEffects(GameObject player)
+    {
+        effectsOnPlayer.SetActive(false);
     }
 
     public void Deactivate(GameObject player)
@@ -56,6 +69,7 @@ public class Haste : MonoBehaviour, IPowerUp
         
         DestoyThePowerUp();
         yield return new WaitForSeconds(duration);
+        DeactivatePlayerJetEffects(player);
         Deactivate(player);
         Destroy(gameObject); 
     }

@@ -7,6 +7,7 @@ public interface IPowerUp
     void Deactivate(GameObject gameObject);
 
      public GameObject fxGameobject { get; set; }
+     public GameObject effectsOnPlayer { get; set; }
      public GameObject fxClaimGameObject { get; set; }
      public Collider2D fxCollider { get; set; }
      

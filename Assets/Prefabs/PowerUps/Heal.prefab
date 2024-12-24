@@ -9957,6 +9957,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 5
+  <fxGameobject>k__BackingField: {fileID: 0}
+  <fxCollider>k__BackingField: {fileID: 0}
+  <fxClaimGameObject>k__BackingField: {fileID: 0}
+  <effectsOnPlayer>k__BackingField: {fileID: 0}
 --- !u!1 &2152072958620655996
 GameObject:
   m_ObjectHideFlags: 0
@@ -19940,7 +19944,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -17,5 +17,5 @@ MonoBehaviour:
   scoreValue: 10
   bodyDamage: 2
   hitParticlePrefab: {fileID: 0}
-  deathParticlePrefab: {fileID: 0}
+  deathParticlePrefab: {fileID: 5714585000181092192, guid: 818288f403181b840921ca9720aaf6ad, type: 3}
   sprite: {fileID: 0}

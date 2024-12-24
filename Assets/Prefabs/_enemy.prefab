@@ -50,8 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a841a78ff97d84b4bbeda8ebfc18ccce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  damage: 1
+  enemyBlueprint: {fileID: 0}
 --- !u!58 &6866908751872768408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -126,9 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401b488936bd71a44b617f5bed6d364f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 10
-  scoreValue: 10
+  <CurrentHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 0
 --- !u!114 &6943534873328655461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d0b76e523ced342abe99e3e2820fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   slider: {fileID: 1803169709529141854}
+  fillArea: {fileID: 0}
   lowHealthColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 0}
   highHealthColor: {r: 0.42657658, g: 0.9433962, b: 0.3426486, a: 0}
   offset: {x: 0, y: 0, z: 0}

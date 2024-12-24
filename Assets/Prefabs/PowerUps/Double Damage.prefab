@@ -5038,7 +5038,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29857,6 +29857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 2
   duration: 5
+  <effectsOnPlayer>k__BackingField: {fileID: 0}
   <fxGameobject>k__BackingField: {fileID: 2431538722839408600}
   <fxCollider>k__BackingField: {fileID: 1416994339249739089}
   <fxClaimGameObject>k__BackingField: {fileID: 7395048191272111470, guid: 4a33da198a7e5cc4b83f74e88a4b3ae2, type: 3}

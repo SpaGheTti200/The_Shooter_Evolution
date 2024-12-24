@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _moveAction;
     private Camera _mainCamera;
 
+    [SerializeField] private Vector2 xClamp;
+    [SerializeField] private Vector2 yClamp;
+
     [HideInInspector] public Vector2 dir;
     public float speed = 5f;
 
@@ -53,8 +56,13 @@ public class PlayerMovement : MonoBehaviour
     private void MoveHandler()
     {
         Vector2 newPosition = _rb2d.position + dir * (speed * Time.fixedDeltaTime);
-        _rb2d.MovePosition(newPosition);
+
+        float clampedX = Mathf.Clamp(newPosition.x, xClamp.x, xClamp.y);
+        float clampedY = Mathf.Clamp(newPosition.y, yClamp.x, yClamp.y);
+
+        _rb2d.MovePosition(new Vector2(clampedX, clampedY));
     }
+
 
    
 }
